@@ -27,7 +27,6 @@ requirements:
     - matplotlib-base >=3.9
     - bokeh >=3.4
     - plotly >=5.19
-    - webcolors
 
 test:
   imports:
