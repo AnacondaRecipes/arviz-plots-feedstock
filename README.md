@@ -1,7 +1,7 @@
 About arviz-plots-feedstock
 ===========================
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/arviz-plots-feedstock/blob/main/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/AnacondaRecipes/arviz-plots-feedstock/blob/main/LICENSE.txt)
 
 Home: https://www.arviz.org/
 
