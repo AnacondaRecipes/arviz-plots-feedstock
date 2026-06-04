@@ -1,0 +1,59 @@
+{% set name = "arviz-plots" %}
+{% set version = "1.1.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_')}}-{{ version }}.tar.gz
+  sha256: c2d213364c5eaadfe890b1f871849d4317dec5260f79f26e30976159c132a351
+
+build:
+  number: 0
+  skip: true  # [py<312]
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python
+    - flit-core >=3.4,<4
+    - pip
+  run:
+    - python
+    - arviz-base >=1.1.0,<1.2.0
+    - arviz-stats >=1.1.0,<1.2.0
+    - xarray >=2024.11.0
+    - numpy >=1.24
+    - packaging >=23.2
+    - pandas >=2.1
+  run_constrained:
+    - matplotlib-base >=3.9
+    - bokeh >=3.4
+    - plotly >=5.19
+
+test:
+  imports:
+    - arviz_plots
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://github.com/arviz-devs/arviz-plots
+  summary: Ready-to-use and composable plots for Bayesian workflow.
+  description: |
+    ArviZ-plots provides plotting utilities for the ArviZ ecosystem, building on
+    arviz-base and arviz-stats.
+  license: Apache-2.0
+  license_family: Apache
+  license_file: LICENSE
+  doc_url: https://python.arviz.org/projects/plots
+  dev_url: https://github.com/arviz-devs/arviz-plots
+
+extra:
+  recipe-maintainers:
+    - OriolAbril
+    - aloctavodia
+    - tomicapretto
